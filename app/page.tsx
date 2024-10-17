@@ -9,6 +9,7 @@ const checkUrl = (url: string) => {
     const urlObject = new URL(url)
     return (urlObject.hostname === 'open.substack.com') ? true : false
   } catch (error) {
+    console.error('Invalid URL', error)
     return false
   }
 }
@@ -25,7 +26,7 @@ export async function generateMetadata({
     return {}
   } else {
     try {
-      const { error, html, result, response } = await ogs({url})
+      const { error, result } = await ogs({url})
       if (error) {
         console.error('Error fetching metadata', error, result)
         return {}
