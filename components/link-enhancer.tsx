@@ -15,7 +15,7 @@ export function LinkEnhancer() {
     e.preventDefault()
     try {
       if (checkUrl(url)) {
-        setEnhancedUrl(`${window.location.origin}/s?url=${encodeURIComponent(url)}`)
+        setEnhancedUrl(`${window.location.origin}/s?url=${Buffer.from(url).toString('base64')}`)
         setNotification('')
       } else {
         throw new Error('Invalid URL')
