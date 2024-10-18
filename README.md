@@ -5,7 +5,7 @@ I've created this app after noticing [twitter messing my substack link](https://
 You can access the app on https://share-the-link.vercel.app
 
 It will give you a link, the link is a page on the app that fetches opengraph metadata from the link you'd like to share.
-It then redirects to the link.
+It then redirects to the original link.
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
