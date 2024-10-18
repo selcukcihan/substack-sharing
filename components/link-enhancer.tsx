@@ -20,7 +20,6 @@ export function LinkEnhancer() {
       } else {
         throw new Error('Invalid URL')
       }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       setNotification(`Error: ${error.message}`)
     }

@@ -1,9 +1,7 @@
-'use server'
-
-import { redirect } from 'next/navigation'
 import ogs from 'open-graph-scraper'
 import '../globals.css'
 import { checkUrl } from '../../core/stuff'
+import { Redirecter } from '../../components/redirecter'
 
 export async function generateMetadata({
   searchParams,
@@ -74,9 +72,5 @@ export default async function Page({
 }) {
   const url = Buffer.from(searchParams.url as string, 'base64').toString('utf8')
   console.log('Redirecting to', url)
-  if (!checkUrl(url)) {
-    redirect('/not-found')
-  } else {
-    redirect(url)
-  }
+  return (<Redirecter url={url} />)
 }
