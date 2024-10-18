@@ -8,7 +8,7 @@ export async function generateMetadata({
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
-  const url = Buffer.from(searchParams.url as string, 'base64').toString('utf8')
+  const url = decodeURIComponent(searchParams.url as string)
   if (!url) {
     return {}
   }
@@ -70,7 +70,7 @@ export default async function Page({
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
-  const url = Buffer.from(searchParams.url as string, 'base64').toString('utf8')
+  const url = decodeURIComponent(searchParams.url as string)
   console.log('Redirecting to', url)
   return (<Redirecter url={url} />)
 }

@@ -8,7 +8,9 @@ export const Redirecter = (props: any) => {
   if (!checkUrl(url)) {
     redirect('/not-found')
   } else {
-    window.location.replace(url)
+    if (global?.window) {
+      global?.window?.location.replace(url)
+    }
   }
   return <> </>
 }
